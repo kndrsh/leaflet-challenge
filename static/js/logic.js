@@ -8,7 +8,7 @@ var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}
   accessToken: API_KEY
 });
 
-// Create our map, giving it the streetmap and earthquakes layers to display on load
+
 var myMap = L.map("map", {
     center: [
       37.09, -95.71
@@ -21,13 +21,12 @@ var myMap = L.map("map", {
   var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
   d3.json(queryUrl, function(data) {
   
-    /// We will create three function. 
-    // function 1 for style, function 2 for color and function 3 for radiues
+    
   
     function mapStyle(feature) {
       return {
         opacity: 1,
-        fillOpacity: 1,
+        fillOpacity: 2,
         fillColor: mapColor(feature.properties.mag),
         color: "#000000",
         radius: mapRadius(feature.properties.mag),
@@ -86,7 +85,7 @@ var myMap = L.map("map", {
         var colors = ["#2c99ea", "#2ceabf", "#92ea2c", "#d5ea2c","#eaa92c", "#ea2c2c"];
     
     
-      // loop thry the intervals of colors to put it in the label
+      
         for (var i = 0; i<grades.length; i++) {
           div.innerHTML +=
           "<i style='background: " + colors[i] + "'></i> " +
